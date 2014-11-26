@@ -29,8 +29,8 @@ RUN	apt-get install -y \
 RUN 	curl -sS https://getcomposer.org/installer | php
 RUN 	mv composer.phar /usr/local/bin/composer
 
-ADD	cphalcon-1.3.2.zip /home/ 
-RUN	cd /home && unzip cphalcon-1.3.2.zip
+ADD	phalcon-v1.3.4.zip /home/ 
+RUN	cd /home && unzip phalcon-v1.3.4.zip
 RUN 	cd /home/cphalcon-1.3.2/build/safe && \ 
 		phpize && \ 
 		./configure --enable-phalcon && \
