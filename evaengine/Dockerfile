@@ -1,14 +1,5 @@
-FROM    docker.mr-5.cn:5000/ubuntu
-RUN	apt-get update -y
-
-RUN     apt-get install -y      \
-                        unzip   \
-                        wget    \
-                        curl    \
-                        git     \
-                        git-core \
-                        httpie  \
-                        dialog
+FROM    docker.wallstreetcn.com/ubuntu
+# RUN	apt-get update -y
 
 RUN	apt-get install -y \
 	libcurl3 \
@@ -31,7 +22,7 @@ RUN 	mv composer.phar /usr/local/bin/composer
 
 ADD	phalcon-v1.3.4.zip /home/ 
 RUN	cd /home && unzip phalcon-v1.3.4.zip
-RUN 	cd /home/cphalcon-1.3.2/build/safe && \ 
+RUN 	cd /home/cphalcon-phalcon-v1.3.4/build/safe && \ 
 		phpize && \ 
 		./configure --enable-phalcon && \
 	 	make && make install
@@ -39,7 +30,7 @@ RUN 	echo "extension=phalcon.so" > /etc/php5/fpm/conf.d/phalcon.ini
 RUN 	echo "extension=phalcon.so" > /etc/php5/cli/conf.d/phalcon.ini
 RUN 	sudo apt-get install -y nodejs npm
 RUN 	ln -s /usr/bin/nodejs /usr/bin/node
-RUN 	npm install -g grunt-cli bower
+RUN 	npm install -g grunt-cli bower gulp
 
 RUN     apt-get install -y nginx
 
