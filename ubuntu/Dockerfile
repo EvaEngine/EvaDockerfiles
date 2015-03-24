@@ -1,4 +1,4 @@
-FROM docker.cn/docker/ubuntu:14.04
+FROM ubuntu:14.04
 
 ADD     sources.list.aliyun /etc/apt/sources.list
 RUN	cat /etc/apt/sources.list
